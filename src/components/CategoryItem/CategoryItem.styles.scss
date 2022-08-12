@@ -10,6 +10,10 @@
   overflow: hidden;
   border-radius: 10px;
 
+  .background__image {
+    transition: transform 3s;
+  }
+
   &:hover {
     cursor: pointer;
 
@@ -57,14 +61,15 @@
 
     h2 {
       font-weight: bold;
-      margin: 0 6px 0;
       font-size: 22px;
       color: #4a4a4a;
+      margin: 0 0 6px;
     }
 
     p {
       font-weight: lighter;
       font-size: 16px;
+      margin: 0;
     }
   }
 }

@@ -32,7 +32,7 @@ function Categories() {
   ];
 
   return (
-    <div className="Categories">
+    <div className="categories">
       <div className="categories__container">
         {categories.map((category) => (
           <CategoryItem key={category.id} category={category} />

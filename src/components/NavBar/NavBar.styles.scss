@@ -1,0 +1,25 @@
+.navbar {
+  position: sticky;
+  top: 0px;
+  background: white;
+  height: 30px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  margin-bottom: 10px;
+
+  .navbar__container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar__items {
+      width: 25vw;
+      max-width: 300px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
