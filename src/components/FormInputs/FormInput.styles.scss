@@ -1,0 +1,49 @@
+.form__inputs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0 0;
+  height: 50px;
+  justify-content: center;
+  width: 100%;
+
+  .form__inputsLabel {
+    position: absolute;
+    margin-left: 10px;
+    padding: 0 5px;
+    font-size: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.2s ease-in-out;
+    z-index: -1;
+    color: grey;
+  }
+
+  .form__inputsInput {
+    position: absolute;
+    padding-left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border: 1px solid;
+    }
+  }
+}
+
+.form__inputsInput:focus ~ .form__inputsLabel,
+.form__inputsInput:not(:placeholder-shown).form__inputsInput:not(:focus)
+  ~ .form__inputsLabel {
+  top: 2px;
+  background: white;
+  font-size: smaller;
+  z-index: 1;
+}
