@@ -55,7 +55,8 @@ function SignUp() {
 
   return (
     <div className="signUp">
-      <h2>Sign up with your email and password: </h2>
+      <h3>I do not have an account</h3>
+      <p>Sign up with your email and password</p>
       <form onSubmit={handleSubmit} className="signUp__form">
         <FormInputs
           label="Username"
@@ -85,7 +86,7 @@ function SignUp() {
           value={confirmPassword}
           onChange={handleChange}
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit">SIGN UP</button>
       </form>
     </div>
   );

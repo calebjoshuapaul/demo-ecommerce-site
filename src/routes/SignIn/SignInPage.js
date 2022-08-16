@@ -7,6 +7,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase";
 import SignUp from "../../components/SignUpForm/SignUp";
+import SignIn from "../../components/SignInForm/SignIn";
 import "./SignInPage.styles.scss";
 
 function SignInPage() {
@@ -27,13 +28,11 @@ function SignInPage() {
 
   return (
     <div className="signInPage">
+      <SignIn
+        logGoogleUser={logGoogleUser}
+        signInWithGoogleRedirect={signInWithGoogleRedirect}
+      />
       <SignUp />
-      <div className="signInPage__google">
-        <button onClick={logGoogleUser}>Sign In with Google</button>
-        <button onClick={signInWithGoogleRedirect}>
-          Sign In with Google Redirect
-        </button>
-      </div>
     </div>
   );
 }
