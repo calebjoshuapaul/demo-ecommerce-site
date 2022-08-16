@@ -1,7 +1,7 @@
 import HomePage from "./routes/Home/HomePage";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
-import SignInPage from "./routes/SignIn/SignInPage";
+import AuthenticationPage from "./routes/Authentication/AuthenticationPage";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<HomePage />} />
-          <Route path="sign-in" element={<SignInPage />} />
+          <Route path="sign-in" element={<AuthenticationPage />} />
         </Route>
       </Routes>
     </div>

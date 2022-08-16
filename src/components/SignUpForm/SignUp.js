@@ -3,6 +3,7 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase";
+import Button from "../Button/Button";
 import FormInputs from "../FormInputs/FormInputs";
 import "./SignUp.styles.scss";
 
@@ -16,8 +17,6 @@ const defaultFormFields = {
 function SignUp() {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  console.log(formFields);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -86,7 +85,7 @@ function SignUp() {
           value={confirmPassword}
           onChange={handleChange}
         />
-        <button type="submit">SIGN UP</button>
+        <Button type="submit" children={"SIGN UP"} />
       </form>
     </div>
   );

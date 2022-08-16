@@ -1,10 +1,10 @@
 import "./Button.styles.scss";
 
-function Button({ children, buttonType, type, handleClick }) {
+function Button({ children, buttonType, type, onClick }) {
   return (
     <div className="button">
       <button
-        onClick={handleClick}
+        onClick={onClick}
         type={type}
         className={`button__container ${buttonType}`}
       >
