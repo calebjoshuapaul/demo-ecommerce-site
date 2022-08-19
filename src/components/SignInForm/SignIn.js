@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import FormInputs from "../FormInputs/FormInputs";
-import "./SignIn.styles.scss";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 import Button from "../Button/Button";
+import FormInputs from "../FormInputs/FormInputs";
 import { getRedirectResult } from "firebase/auth";
 import {
   auth,
@@ -10,6 +10,7 @@ import {
   createUserDocumentFromAuth,
   signAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase";
+import "./SignIn.styles.scss";
 
 const defaultFormFields = {
   email: "",
@@ -17,22 +18,25 @@ const defaultFormFields = {
 };
 
 function SignIn() {
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { email, password } = formFields;
+  const { setCurrentUser } = useContext(UserContext);
+
   useEffect(() => {
     (async () => {
-      const response = await getRedirectResult(auth);
-      if (response) {
-        await createUserDocumentFromAuth(response?.user);
+      const { user } = await getRedirectResult(auth);
+      if (user) {
+        await createUserDocumentFromAuth(user);
+        setCurrentUser(user);
       }
     })();
   }, []);
 
   const logGoogleUser = async () => {
-    const response = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(response?.user);
+    const { user } = await signInWithGooglePopup();
+    await createUserDocumentFromAuth(user);
+    setCurrentUser(user);
   };
-
-  const [formFields, setFormFields] = useState(defaultFormFields);
-  const { email, password } = formFields;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,8 +49,8 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(email);
-      await signAuthUserWithEmailAndPassword(email, password);
+      const { user } = await signAuthUserWithEmailAndPassword(email, password);
+      setCurrentUser(user);
     } catch (error) {
       if (error.code === "auth/wrong-password") alert("Incorrect password");
       if (error.code === "auth/user-not-found") alert("Incorrect email");
