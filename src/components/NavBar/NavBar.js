@@ -3,6 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { ReactComponent as Logo } from "../../assets/083 crown.svg";
 import { signOutUser } from "../../utils/firebase/firebase";
+import CartIcon from "../CartIcon/CartIcon";
 import "./NavBar.styles.scss";
 
 function NavBar() {
@@ -34,6 +35,7 @@ function NavBar() {
             )}
           </div>
         </div>
+        <CartIcon />
       </div>
       <Outlet />
     </>

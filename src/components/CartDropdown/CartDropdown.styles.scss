@@ -1,0 +1,18 @@
+.cartDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  border: 1px solid;
+  padding: 7px 5px;
+  width: 200px;
+  max-height: 400px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__items {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+}

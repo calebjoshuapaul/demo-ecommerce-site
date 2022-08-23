@@ -6,3 +6,9 @@
   height: 100%;
   padding-top: 50px;
 }
+
+@media screen and (max-width: 600px) {
+  .authenticationPage {
+    flex-direction: column;
+  }
+}
