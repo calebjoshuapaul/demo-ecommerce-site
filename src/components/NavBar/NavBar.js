@@ -6,12 +6,11 @@ import { signOutUser } from "../../utils/firebase/firebase";
 import "./NavBar.styles.scss";
 
 function NavBar() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   const userName = currentUser?.displayName.split(" ");
 
   const handleSignOut = async () => {
     await signOutUser();
-    setCurrentUser(null);
   };
   return (
     <>
