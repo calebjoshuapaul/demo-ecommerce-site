@@ -3,7 +3,7 @@ import Categories from "../../components/Categories/Categories";
 
 function HomePage() {
   return (
-    <div>
+    <div className="homePage">
       <Categories />
     </div>
   );

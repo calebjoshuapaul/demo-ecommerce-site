@@ -4,7 +4,7 @@ import "./AuthenticationPage.styles.scss";
 
 function AuthenticationPage() {
   return (
-    <div className="signInPage">
+    <div className="authenticationPage">
       <SignIn />
       <SignUp />
     </div>
