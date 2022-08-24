@@ -7,17 +7,16 @@ function CartDropdownItem() {
   return (
     <div className="cartDropdownItem">
       {cartItems.length ? (
-        cartItems.map((cartItem) => {
+        cartItems.map(({ id, name, price, quantity, imageUrl }) => {
           return (
-            <div key={cartItem.id} className="cartItem__Container">
+            <div key={id} className="cartItem__Container">
               <div className="cartItem__Image">
-                <img src={`${cartItem.imageUrl}`} alt={`${cartItem.name}`} />
+                <img src={`${imageUrl}`} alt={`${name}`} />
               </div>
               <div className="cartItem__Info">
-                <p>{cartItem.name}</p>
+                <p>{name}</p>
                 <span>
-                  {cartItem.quantity} X {cartItem.price * 75} ={" "}
-                  {cartItem.quantity * (cartItem.price * 75)}Rs
+                  {quantity} X {price * 75} = {quantity * (price * 75)}Rs
                 </span>
               </div>
             </div>
