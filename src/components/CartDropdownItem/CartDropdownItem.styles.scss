@@ -1,0 +1,30 @@
+.cartDropdownItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  .cartItem__Container {
+    display: flex;
+
+    .cartItem__Image {
+      img {
+        height: 60px;
+        width: 60px;
+        object-fit: cover;
+      }
+    }
+
+    .cartItem__Info {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        margin: 0 10px 10px;
+      }
+      span {
+        margin: 0 10px;
+      }
+    }
+  }
+}
