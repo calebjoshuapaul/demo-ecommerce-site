@@ -75,7 +75,7 @@ function SignIn() {
       </form>
       <Button
         buttonType={"google-sign-in"}
-        children={"Sign In with Google"}
+        children={"Google Sign In"}
         onClick={logGoogleUser}
       />
       <Button

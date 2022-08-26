@@ -4,9 +4,10 @@ import { CartContext } from "../../context/CartContext";
 import "./ProductCard.styles.scss";
 
 function ProductCard({ product }) {
-  const { addItemToCart } = useContext(CartContext);
+  const { addItemToCart, setCartCount } = useContext(CartContext);
 
   const addToCart = () => {
+    setCartCount((cartCount) => cartCount + 1);
     addItemToCart(product);
   };
   return (
