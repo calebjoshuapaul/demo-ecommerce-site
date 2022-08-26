@@ -31,14 +31,14 @@ function CheckoutItem({ item }) {
       <div className="checkoutItem__info">
         <h3>{name}</h3>
         <p>
-          <span onClick={() => decrementQuantity(item)}> - </span>
+          <span onClick={() => decrementQuantity(item)}> &#10094; </span>
           {quantity}
-          <span onClick={() => incrementQuantity(item)}> + </span>
+          <span onClick={() => incrementQuantity(item)}> &#10095; </span>
+          <span onClick={clearItem}>&#10005;</span>
         </p>
         <p>
           {quantity} x {price * 75} = {quantity * price * 75} Rs
         </p>
-        <h3 onClick={clearItem}>&#10005;</h3>
       </div>
     </div>
   );
