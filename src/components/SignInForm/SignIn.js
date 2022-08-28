@@ -80,7 +80,7 @@ function SignIn() {
       />
       <Button
         buttonType={"google-sign-in"}
-        children={"Sign In with Redirect"}
+        children={"Redirect to Google"}
         onClick={signInWithGoogleRedirect}
       />
     </div>
