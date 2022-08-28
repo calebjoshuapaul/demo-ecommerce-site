@@ -5,11 +5,12 @@ import "./ShopPage.styles.scss";
 
 function ShopPage() {
   const { products } = useContext(ProductContext);
-
+  console.log(products.hats);
+  const { hats } = products;
   return (
     <div className="shopPage">
       <div className="shopPage__container">
-        {products.map((product) => {
+        {hats.map((product) => {
           return <ProductCard key={product.id} product={product} />;
         })}
       </div>

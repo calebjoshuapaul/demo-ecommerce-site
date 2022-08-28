@@ -9,7 +9,16 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+  query,
+  getDocs,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDEny8VVPKs9Wa9W93na1ur92hMuNXqSPM",
@@ -44,6 +53,38 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 
 //Initialize database
 export const db = getFirestore();
+
+//Adding JSON data and populating firestore db
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  documentObjectsToAdd
+) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+
+  documentObjectsToAdd.forEach((documentObject) => {
+    const docRef = doc(collectionRef, documentObject.title.toLowerCase());
+    batch.set(docRef, documentObject);
+  });
+
+  await batch.commit();
+};
+
+// Getting the stored JSON data back from firestore..
+export const getCollectionAndDocuments = async () => {
+  const collectionRef = collection(db, "categories");
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+
+  const categoryMap = querySnapshot.docs.reduce((acc, snapshot) => {
+    const { title, items } = snapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+
+  return categoryMap;
+};
 
 export const createUserDocumentFromAuth = async (
   userAuth,
