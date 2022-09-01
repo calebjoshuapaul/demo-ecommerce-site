@@ -11,8 +11,20 @@
   }
 }
 
+.title {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  text-transform: uppercase;
+  padding: 10px;
+  background: rgba($color: #000000, $alpha: 0.075);
+}
+
 @media screen and (max-width: 900px) {
   .shopPage__container {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .title {
+    grid-column-start: 1;
+    grid-column-end: 3;
   }
 }

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
+import { ProductContext } from "../../context/ProductContext";
 import { ReactComponent as Logo } from "../../assets/083 crown.svg";
 import { signOutUser } from "../../utils/firebase/firebase";
 import CartIcon from "../CartIcon/CartIcon";
@@ -13,6 +14,13 @@ function NavBar() {
   const handleSignOut = async () => {
     await signOutUser();
   };
+
+  const { setProducts, categories } = useContext(ProductContext);
+
+  const handleShopClick = () => {
+    setProducts(categories);
+  };
+
   return (
     <>
       <div className="navbar">
@@ -21,7 +29,9 @@ function NavBar() {
             <Logo className="navbar__logo" />
           </Link>
           <div className="navbar__items">
-            <Link to="/shop">SHOP</Link>
+            <Link to="/shop" onClick={handleShopClick}>
+              SHOP
+            </Link>
             <Link to="/contact">CONTACT</Link>
             <Link to="/sign-in">
               {currentUser ? `Hi, ${userName[0].toUpperCase()}` : "SIGN IN"}
