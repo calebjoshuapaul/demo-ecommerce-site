@@ -10,7 +10,7 @@ function ProductPage() {
 
   useEffect(() => {
     setProducts(categories[productName]);
-  }, [categories, productName]);
+  });
 
   console.log(products, categories, productName);
 
