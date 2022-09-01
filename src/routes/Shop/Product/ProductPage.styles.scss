@@ -1,0 +1,30 @@
+.productPage {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 50px;
+  }
+}
+
+.title {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  text-transform: uppercase;
+  padding: 10px;
+  background: rgba($color: #000000, $alpha: 0.075);
+}
+
+@media screen and (max-width: 900px) {
+  .productPage__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .title {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
