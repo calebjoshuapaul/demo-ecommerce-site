@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
 import ProductPage from "./Product/ProductPage";
@@ -10,7 +10,6 @@ function ShopPage() {
   const navigate = useNavigate();
 
   const handleClickTitle = (event) => {
-    console.log("clicked", event.target.innerHTML);
     navigate(`/shop/${event.target.innerHTML}`);
   };
 
@@ -21,9 +20,9 @@ function ShopPage() {
         element={
           <div className="shopPage">
             <div className="shopPage__container">
-              {Object.keys(categories).map((title) => {
+              {Object.keys(categories).map((title, index) => {
                 return (
-                  <>
+                  <Fragment key={index}>
                     <h2
                       onClick={(event) => handleClickTitle(event)}
                       className="title"
@@ -33,7 +32,7 @@ function ShopPage() {
                     {categories[title].slice(0, 4).map((product) => {
                       return <ProductCard key={product.id} product={product} />;
                     })}
-                  </>
+                  </Fragment>
                 );
               })}
             </div>

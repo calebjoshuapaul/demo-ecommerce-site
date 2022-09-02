@@ -12,15 +12,14 @@ function ProductPage() {
     setProducts(categories[productName]);
   });
 
-  console.log(products, categories, productName);
-
   return (
     <div className="productPage">
       <div className="productPage__container">
         <h2 className="title">{productName}</h2>
-        {products.map((product) => {
-          return <ProductCard key={product.id} product={product} />;
-        })}
+        {products &&
+          products.map((product) => {
+            return <ProductCard key={product.id} product={product} />;
+          })}
       </div>
     </div>
   );
