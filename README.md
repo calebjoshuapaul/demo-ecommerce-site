@@ -1,7 +1,9 @@
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Under construction
-
 [Live preview](https://e-comm-app-777.web.app/)
+
+#E-comm site:
+##Tools  and Technologies used:
+  -ReactJS
+  -SASS
+  -Firebase
+  
+ ###To install and view on your local machine fork and clone the project and run: npm install
