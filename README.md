@@ -3,6 +3,7 @@
 # E-comm site:
 ## Tools  and Technologies used:
   - ReactJS
+  - React Router
   - SASS
   - Firebase
   
