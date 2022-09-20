@@ -6,4 +6,4 @@
   - SASS
   - Firebase
   
- ### To install and view on your local machine fork and clone the project and run: npm install
+ ### To install and view on your local machine fork and clone the project and run: <code>npm install</code>
